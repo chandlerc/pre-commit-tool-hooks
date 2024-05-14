@@ -33,8 +33,6 @@ _REPLACERS = (
     ("e.g.", "for example"),
     ("file name", "filename"),
     ("filesystem", "file system"),
-    ("flag", "option"),
-    ("flags", "options"),
     ("for instance", "for example"),
     ("i.e.", "that is"),
     ("pros", "advantages"),
