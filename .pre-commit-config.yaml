@@ -22,7 +22,7 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 3298ddab3c13dd77d6ce1fc0baf97691430d84b0 # frozen: v4.3.0
+    rev: 2c9f875913ee60ca25ce70243dc24d5b6415598c # frozen: v4.6.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -36,7 +36,7 @@ repos:
         args: ['--fix=lf']
       - id: trailing-whitespace
   - repo: https://github.com/codespell-project/codespell
-    rev: c6ecb9fc51571a77bc92e6c265c358aef7cb6c38 # frozen: v2.2.1
+    rev: 6e41aba91fb32e9feb741a6258eefeb9c6e4a482 # frozen: v2.2.6
     hooks:
       - id: codespell
   - repo: https://github.com/google/pre-commit-tool-hooks
@@ -47,7 +47,7 @@ repos:
       - id: markdown-toc
   # Formatters should be run late so that they can re-format any prior changes.
   - repo: https://github.com/psf/black
-    rev: f6c139c5215ce04fd3e73a900f1372942d58eca0 # frozen: 22.6.0
+    rev: 3702ba224ecffbcec30af640c149f231d90aebdb # frozen: 24.4.2
     hooks:
       - id: black
   - repo: https://github.com/prettier/pre-commit
@@ -55,12 +55,12 @@ repos:
     hooks:
       - id: prettier
   # Run linters last, as formatters and other checks may fix issues.
-  - repo: https://gitlab.com/PyCQA/flake8
-    rev: dcd740bc0ebaf2b3d43e59a0060d157c97de13f3 # frozen: 3.9.2
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7d37d9032d0d161634be4554273c30efd4dea0b3 # frozen: 7.0.0
     hooks:
       - id: flake8
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: fde4bb992b03943ecb94207a52739ba07957bd06 # frozen: v0.971
+    rev: e5ea6670624c24f8321f6328ef3176dbba76db46 # frozen: v1.10.0
     hooks:
       - id: mypy
         additional_dependencies: [types-all]

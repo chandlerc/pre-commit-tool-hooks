@@ -127,7 +127,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     parsed_args = _parse_args(argv[1:])
     paths = parsed_args.paths
 
-    # Build the list of replacer regexes once, and re-use it for all files.
+    # Build the list of replacer regexes once, and reuse it for all files.
     replacers = list(build_replacers())
 
     exit_code = 0
