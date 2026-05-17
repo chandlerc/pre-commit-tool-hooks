@@ -1,4 +1,4 @@
-# Copyright 2020 Google LLC
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,9 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-**/__pycache__/
+[package]
+name = "pre-commit-tool-hooks"
+version = "0.1.0"
+edition = "2024"
 
-
-# Added by cargo
-
-/target
+[dependencies]
+clap = { version = "4.6.1", features = ["derive"] }
+regex = "1.12.3"
+chrono = "0.4.44"
+pulldown-cmark = "0.13.3"
+url = "2.5.8"

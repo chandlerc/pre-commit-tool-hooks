@@ -20,6 +20,8 @@
 default_language_version:
   python: python3 # Defaults to python2, so override it.
 
+exclude: ^tests/data/
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: 2c9f875913ee60ca25ce70243dc24d5b6415598c # frozen: v4.6.0
@@ -39,28 +41,33 @@ repos:
     rev: 6e41aba91fb32e9feb741a6258eefeb9c6e4a482 # frozen: v2.2.6
     hooks:
       - id: codespell
-  - repo: https://github.com/google/pre-commit-tool-hooks
-    rev: e006c8ab09f96ec32ba728b488ea5d17e1f8f6c0 # frozen: v1.2.4
+  - repo: local
     hooks:
       - id: check-copyright
+        name: Check for copyright in files
+        entry: cargo run --quiet --bin check_copyright --
+        language: system
       - id: check-google-doc-style
+        name: Check Google Developer Documentation style
+        entry: cargo run --quiet --bin check_google_doc_style --
+        language: system
       - id: markdown-toc
-  # Formatters should be run late so that they can re-format any prior changes.
-  - repo: https://github.com/psf/black
-    rev: 3702ba224ecffbcec30af640c149f231d90aebdb # frozen: 24.4.2
-    hooks:
-      - id: black
+        name: Update markdown tables of contents
+        entry: cargo run --quiet --bin markdown_toc --
+        language: system
   - repo: https://github.com/prettier/pre-commit
     rev: 57f39166b5a5a504d6808b87ab98d41ebf095b46
     hooks:
       - id: prettier
-  # Run linters last, as formatters and other checks may fix issues.
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7d37d9032d0d161634be4554273c30efd4dea0b3 # frozen: 7.0.0
+  - repo: local
     hooks:
-      - id: flake8
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: e5ea6670624c24f8321f6328ef3176dbba76db46 # frozen: v1.10.0
-    hooks:
-      - id: mypy
-        additional_dependencies: [types-all]
+      - id: cargo-fmt
+        name: cargo fmt
+        entry: cargo fmt --all
+        language: system
+        pass_filenames: false
+      - id: cargo-clippy
+        name: cargo clippy
+        entry: cargo clippy --all-targets --all-features -- -D warnings
+        language: system
+        pass_filenames: false

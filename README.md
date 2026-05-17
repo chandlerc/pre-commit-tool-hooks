@@ -16,7 +16,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-This repository contains hooks for use with [pre-commit](http://pre-commit.com).
+This repository contains hooks written in Rust, optimized for use with
+[prek](https://github.com/j178/prek) (a fast, drop-in replacement for
+pre-commit), but also fully compatible with [pre-commit](http://pre-commit.com).
 
 <!-- toc -->
 
